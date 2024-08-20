@@ -100,22 +100,7 @@
 
         <!-- Posts Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-            <article class="flex flex-col shadow my-4">
-                @foreach ($posts as $post)
-                <div href="#" class="hover:opacity-75">
-                    <img src="{{ asset($post->url_image) }}">
-                </div>
-                <div class="bg-white flex flex-col justify-start p-6">
-                    <p href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{$post->category}}</p>
-                    <p href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$post->title}}</p>
-                    <p href="#" class="text-sm pb-3">Publicado el {{$post->created_at->format('d-m-Y')}}</p>
-                    <p href="#" class="pb-6">{{$post->content}}</p>
-                    {{-- <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a> --}}
-                </div>
-                @endforeach
-            </article>
-
-            {{$posts->links()}}
+            Entramos a lead.index
         </section>
 
         <!-- Sidebar Section -->

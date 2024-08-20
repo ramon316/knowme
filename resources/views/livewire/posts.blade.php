@@ -70,7 +70,7 @@
             @endif
             <div class="col-span-6 sm:col-span-4 mb-6">
                 <x-label for="title" value="{{ __('Título') }}" />
-                <x-input id="title" type="text" class="mt-1 block w-full" wire:model="title" />
+                <x-input id="title" type="text" class="mt-1 block w-full" wire:model.live="title" />
                 <x-input-error for="title" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mb-6">

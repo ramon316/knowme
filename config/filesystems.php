@@ -38,8 +38,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => app_path('../public_html/storage'),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -69,8 +69,18 @@ return [
     |
     */
 
-    'links' => [
+    /* 'links' => [
         public_path('storage') => storage_path('app/public'),
+    ],
+ */
+
+    'links' => [
+
+        /* Este es el enlace simbolico para desarrollo */
+        public_path('storage') => storage_path('app/public'),
+        /* Este es el enlace simbolico para el servidor
+        Estamos copiando la carpeta publi del store a una public_html*/
+        base_path('public_html') => public_path(''),
     ],
 
 ];

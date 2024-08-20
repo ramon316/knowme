@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PostController;
 use App\Livewire\Posts;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LeadController;
 use PHPUnit\Framework\Attributes\PostCondition;
 
 /*
@@ -42,3 +44,20 @@ Route::get('/conocenos', function () {
 /* Contact */
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+/* Register */
+Route::get('/register', [LeadController::class, 'index'])->name('lead.index');
+
+/* Storage:link */
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return 'DONE';
+});
+
+/**Eliminar cache de servicio */
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
